@@ -1,0 +1,52 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #172033;
+  background: #eef2f8;
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px; }
+.app-shell { width: min(100%, 1000px); min-height: 650px; background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px #1d2b461c; }
+.login-panel { width: min(420px, calc(100% - 40px)); margin: 100px auto; text-align: center; }
+.brand-mark { width: 58px; height: 58px; display: grid; place-items: center; margin: 0 auto 18px; border-radius: 18px; background: #3157d5; color: white; font-weight: 800; font-size: 20px; }
+h1 { margin: 0 0 8px; font-size: 30px; }
+.muted, .hint { color: #778198; }
+.login-panel form { display: grid; gap: 12px; margin-top: 30px; text-align: left; }
+label { font-size: 14px; font-weight: 650; }
+input { width: 100%; border: 1px solid #dce2ed; border-radius: 10px; padding: 14px; font: inherit; outline: none; }
+input:focus { border-color: #3157d5; box-shadow: 0 0 0 3px #3157d51a; }
+button { border: 0; border-radius: 10px; padding: 13px 20px; color: white; background: #3157d5; font: inherit; font-weight: 700; cursor: pointer; }
+button:hover { background: #2446b7; }
+.error { min-height: 20px; color: #c0392b; font-size: 13px; }
+.hidden { display: none !important; }
+.topbar { display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; border-bottom: 1px solid #edf0f5; }
+.brand-title { font-weight: 800; font-size: 20px; }
+.small { font-size: 13px; margin-top: 4px; }
+.connection { color: #27834a; font-size: 13px; font-weight: 650; }
+.status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #35b56a; margin-right: 6px; }
+.chat-layout { display: grid; grid-template-columns: 240px 1fr; min-height: 570px; }
+.users-panel { padding: 24px 18px; background: #f8f9fc; border-right: 1px solid #edf0f5; }
+.users-panel h2 { margin: 0 0 20px; font-size: 14px; text-transform: uppercase; letter-spacing: .05em; color: #647087; }
+#userCount { display: inline-grid; place-items: center; min-width: 22px; height: 22px; margin-left: 5px; border-radius: 20px; background: #e7edff; color: #3157d5; }
+#usersList { list-style: none; margin: 0; padding: 0; }
+#usersList li { display: flex; align-items: center; gap: 9px; padding: 10px 4px; font-size: 14px; overflow-wrap: anywhere; }
+.user-dot { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; background: #35b56a; }
+.conversation { min-width: 0; display: flex; flex-direction: column; padding: 20px; }
+.messages { flex: 1; min-height: 400px; max-height: 490px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; padding: 4px 2px 18px; }
+.empty-state { margin: auto; color: #98a1b2; }
+.message { max-width: min(78%, 560px); padding: 11px 14px; border-radius: 14px 14px 14px 4px; background: #f0f3f9; overflow-wrap: anywhere; }
+.message.mine { align-self: flex-end; color: white; background: #3157d5; border-radius: 14px 14px 4px 14px; }
+.message-meta { display: flex; gap: 12px; margin-bottom: 5px; font-size: 11px; opacity: .75; }
+.message-text { white-space: pre-wrap; line-height: 1.45; }
+.system-message { align-self: center; color: #8b94a5; font-size: 12px; padding: 5px; }
+.message-form { display: flex; gap: 10px; border-top: 1px solid #edf0f5; padding-top: 16px; }
+.message-form input { flex: 1; min-width: 0; }
+.hint { margin: 8px 2px 0; font-size: 11px; }
+@media (max-width: 650px) {
+  body { padding: 0; display: block; }
+  .app-shell { min-height: 100vh; border-radius: 0; }
+  .chat-layout { grid-template-columns: 1fr; }
+  .users-panel { border-right: 0; border-bottom: 1px solid #edf0f5; padding: 14px 18px; }
+  #usersList { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+  .messages { min-height: 48vh; }
+  .topbar { padding: 18px; }
+}

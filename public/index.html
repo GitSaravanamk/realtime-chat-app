@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Realtime Chat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section id="loginPanel" class="login-panel">
+      <div class="brand-mark">RC</div>
+      <h1>Realtime Chat</h1>
+      <p class="muted">Choose a username and join the conversation.</p>
+      <form id="loginForm">
+        <label for="usernameInput">Username</label>
+        <input id="usernameInput" type="text" minlength="2" maxlength="20"
+               placeholder="e.g. Alex" autocomplete="nickname" required>
+        <button type="submit">Join chat</button>
+        <p id="loginError" class="error" role="alert"></p>
+      </form>
+    </section>
+
+    <section id="chatPanel" class="chat-panel hidden">
+      <header class="topbar">
+        <div>
+          <div class="brand-title">Realtime Chat</div>
+          <div class="muted small">Connected as <strong id="myUsername"></strong></div>
+        </div>
+        <div class="connection"><span class="status-dot"></span> Connected</div>
+      </header>
+
+      <div class="chat-layout">
+        <aside class="users-panel">
+          <h2>Online users <span id="userCount">0</span></h2>
+          <ul id="usersList"></ul>
+        </aside>
+
+        <section class="conversation">
+          <div id="messages" class="messages" aria-live="polite">
+            <div class="empty-state">No messages yet. Say hello!</div>
+          </div>
+          <form id="messageForm" class="message-form">
+            <input id="messageInput" type="text" maxlength="500"
+                   placeholder="Write a message..." autocomplete="off" required>
+            <button type="submit">Send</button>
+          </form>
+          <p class="hint">Press Enter to send · 500 characters maximum</p>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
